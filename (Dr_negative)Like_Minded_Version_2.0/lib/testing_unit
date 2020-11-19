@@ -1,0 +1,231 @@
+import 'package:flutter/material.dart';
+import 'package:lm_login/group_stuff/chat_page.dart';
+import 'package:lm_login/group_stuff/database2.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+class GroupTile extends StatefulWidget {
+  @override
+  final String userName;
+  final String groupId;
+  final String groupName;
+
+  GroupTile({this.userName, this.groupId, this.groupName});
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return GroupTile2(
+        userName: userName, groupId: groupId, groupName: groupName);
+  }
+}
+
+class GroupTile2 extends State<GroupTile> {
+  final String userName;
+  final String groupId;
+  final String groupName;
+  String recent = "";
+  String current = "";
+  GroupTile2({this.userName, this.groupId, this.groupName});
+  // _getrecentchatandmessage() async {
+  //   String ans = await FirebaseAuth.instance.currentUser.uid;
+  //   var sol = await DatabaseService(uid: ans).getGroupdeatails(groupId);
+  //   print(sol);
+  // }
+
+  // void initState() async {
+  //   super.initState();
+  // }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => ChatPage(
+                      groupId: groupId,
+                      userName: userName,
+                      groupName: groupName,
+                    )));
+      },
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 10.0),
+        child: ListTile(
+          leading: Container(
+            height: 60,
+            width: 60,
+            decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.circular(60),
+                border:
+                    Border.all(color: Theme.of(context).accentColor, width: 2)),
+            child: CircleAvatar(
+              radius: 30.0,
+              backgroundImage: NetworkImage(
+                  'https://raw.githubusercontent.com/DR-NEGATIVE/i_m_going_to_be_a_fullstackdeveloper/master/okay.jpg'),
+            ),
+          ),
+          title: Text(groupName, style: TextStyle(fontWeight: FontWeight.bold)),
+          subtitle: Text("Join the conversation as $userName",
+              style: TextStyle(fontSize: 13.0)),
+        ),
+      ),
+    );
+  }
+}
+////////////////////////////////////
+import 'package:flutter/material.dart';
+import 'package:lm_login/group_stuff/chat_page.dart';
+
+class GroupTile extends StatelessWidget {
+  final String userName;
+  final String groupId;
+  final String groupName;
+  GroupTile({this.userName, this.groupId, this.groupName});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => ChatPage(
+                      groupId: groupId,
+                      userName: userName,
+                      groupName: groupName,
+                    )));
+      },
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 10.0),
+        child: ListTile(
+          leading: Container(
+            height: 60,
+            width: 60,
+            decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.circular(60),
+                border:
+                    Border.all(color: Theme.of(context).accentColor, width: 2)),
+            child: CircleAvatar(
+              radius: 30.0,
+              backgroundImage: NetworkImage(
+                  'https://raw.githubusercontent.com/DR-NEGATIVE/i_m_going_to_be_a_fullstackdeveloper/master/okay.jpg'),
+            ),
+          ),
+          title: Text(groupName, style: TextStyle(fontWeight: FontWeight.bold)),
+          subtitle: Text("Join the conversation as $userName",
+              style: TextStyle(fontSize: 13.0)),
+        ),
+      ),
+    );
+  }
+}
+////about us
+import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import './bloc.navigation_bloc/navigation_bloc.dart';
+
+class About_Us extends StatelessWidget with NavigationStates {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return _about_us();
+  }
+}
+
+class _about_us extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color(0xFF73AEF5),
+              Color(0xFF61A4F1),
+              Color(0xFF478DE0),
+              Color(0xFF398AE5),
+            ],
+            stops: [0.1, 0.4, 0.7, 0.9],
+          ),
+        ),
+        child: ListView(
+          children: <Widget>[
+            Column(
+              children: <Widget>[
+                Container(
+                  child: Text(
+                    "About Team",
+                    style: TextStyle(
+                      color: Colors.white,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'OpenSans',
+                      fontSize: 32,
+                    ),
+                  ),
+                  margin: EdgeInsets.all(15.0),
+                  height: 80,
+                ),
+                Container(
+                  width: double.infinity,
+                  margin: EdgeInsets.all(7.0),
+                  height: 220,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15.0),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black12,
+                          blurRadius: 6.0,
+                          offset: Offset(0, 2),
+                        ),
+                      ]),
+                  child: Card(
+                    color: Colors.white,
+                  ),
+                ),
+                Container(
+                  width: double.infinity,
+                  margin: EdgeInsets.all(7.0),
+                  height: 220,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15.0),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black12,
+                          blurRadius: 6.0,
+                          offset: Offset(0, 2),
+                        ),
+                      ]),
+                  child: Card(
+                    color: Colors.white,
+                  ),
+                ),
+                Container(
+                  width: double.infinity,
+                  margin: EdgeInsets.all(7.0),
+                  height: 220,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  child: Card(
+                    color: Colors.white,
+                  ),
+                ),
+                Container(
+                  width: double.infinity,
+                  margin: EdgeInsets.all(7.0),
+                  height: 220,
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(15.0)),
+                  child: Card(
+                    color: Colors.white,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ));
+  }
+}
