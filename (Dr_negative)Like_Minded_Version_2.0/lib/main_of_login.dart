@@ -26,8 +26,6 @@ class LoginPage extends StatefulWidget {
 
 class Login extends State<LoginPage> {
   @override
-  // TODO: implement build
-
   bool _rememberMe = false;
   bool _isLoading = false;
   AuthMethods authMethods = new AuthMethods();
@@ -300,10 +298,6 @@ class Login extends State<LoginPage> {
   Widget _buildSignupBtn() {
     return GestureDetector(
       onTap: () => widget.toggleView()
-      /*Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => Sign_up()),
-      )*/
       ,
       child: RichText(
         text: TextSpan(
@@ -411,7 +405,4 @@ class Login extends State<LoginPage> {
               ));
   }
 }
-/*AuthService().signOut();
-              Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => Authenticate()));
-                  */
+
