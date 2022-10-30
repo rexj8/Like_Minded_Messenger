@@ -12,11 +12,6 @@ import 'package:lm_login/helper/auth.dart';
 import 'package:lm_login/helper/helperfunctions.dart';
 import 'sidebar/sidebar_layout.dart';
 
-/*void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  runApp(MaterialApp(debugShowCheckedModeBanner: false, home: Authenticate()));
-}*/
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -62,9 +57,7 @@ class _MyAppState extends State<MyApp> {
       darkTheme:
           ThemeData(brightness: Brightness.dark, accentColor: Colors.white70),
 
-      //home: _isLoggedIn != null ? _isLoggedIn ? HomePage() : AuthenticatePage() : Center(child: CircularProgressIndicator()),
       home: _isLoggedIn ? SideBarLayout() : Authenticate(),
-      //home: HomePage(),
     );
   }
 }
