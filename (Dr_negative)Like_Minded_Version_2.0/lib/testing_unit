@@ -24,15 +24,7 @@ class GroupTile2 extends State<GroupTile> {
   String recent = "";
   String current = "";
   GroupTile2({this.userName, this.groupId, this.groupName});
-  // _getrecentchatandmessage() async {
-  //   String ans = await FirebaseAuth.instance.currentUser.uid;
-  //   var sol = await DatabaseService(uid: ans).getGroupdeatails(groupId);
-  //   print(sol);
-  // }
 
-  // void initState() async {
-  //   super.initState();
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -128,7 +120,6 @@ import './bloc.navigation_bloc/navigation_bloc.dart';
 class About_Us extends StatelessWidget with NavigationStates {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return _about_us();
   }
 }
@@ -136,7 +127,6 @@ class About_Us extends StatelessWidget with NavigationStates {
 class _about_us extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
